@@ -1,5 +1,6 @@
 from dotenv import load_dotenv
 from langgraph.graph import StateGraph, START, END
+
 from nodes.find_culprit_files import find_culprit_files
 from state import State
 from nodes.issue_selection_node import issue_selection_node 
@@ -7,13 +8,14 @@ from nodes.issue_selection_node import issue_selection_node
 
 workflow = StateGraph(State)
 
-
+#node registration
 workflow.add_node("selection", issue_selection_node)
 workflow.add_node("cultprit_identification", find_culprit_files)
-
+#node orchestration
 workflow.add_edge(START, "selection")
 workflow.add_edge("selection", "cultprit_identification")
 workflow.add_edge("cultprit_identification", END)
+
 
 
 app = workflow.compile()
