@@ -1,8 +1,8 @@
 ```text
-  ____       _            _   _        ____ _ _   
- / ___| __ _| | __ _  ___| |_(_) ___  / ___(_) |_ 
+  ____       _            _   _        ____ _ _
+ / ___| __ _| | __ _  ___| |_(_) ___  / ___(_) |_
 | |  _ / _` | |/ _` |/ __| __| |/ __|| |  _| | __|
-| |_| | (_| | | (_| | (__| |_| | (__ | |_| | | |_ 
+| |_| | (_| | | (_| | (__| |_| | (__ | |_| | | |_
  \____|\__,_|_|\__,_|\___|\__|_|\___| \____|_|\__|
 ```
 
@@ -34,18 +34,21 @@ The project is structured as a LangGraph state machine with the following nodes:
 ## Installation
 
 1. Clone the repository:
+
    ```bash
    git clone <repository_url>
    cd galactic-git
    ```
 
 2. Create and activate a virtual environment:
+
    ```bash
    python -m venv venv
    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
    ```
 
 3. Install the required dependencies:
+
    ```bash
    pip install -r requirements.txt
    ```
@@ -62,6 +65,17 @@ python main.py
 ```
 
 The script will invoke the LangGraph workflow, process the initial state (which can be modified in `main.py`), and automatically iterate through the issue resolution steps.
+
+## Sample .env
+
+```
+GITHUB_TOKEN=your-personal-access-token
+OLLAMA_BASE_URL=your-ollama-url
+PROJECT_PATH=project-path
+OWNER=your-github-profile-name
+REPO=your-repo-name
+BASE_BRANCH=master/main/your-custom-branch
+```
 
 ## Directory Structure
 
