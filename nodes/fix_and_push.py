@@ -7,6 +7,6 @@ from tools.apply_changes import apply_changes
 
 def fix_and_push(state :State):
     
-     apply_changes(state.sed_commands,"../"+os.getenv("PROJECT_PATH"),state.branch_name)
+     apply_changes(state.sed_commands,"../"+os.getenv("PROJECT_PATH"),state.branch_name,state.commit_message)
     
            
