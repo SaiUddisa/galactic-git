@@ -36,6 +36,4 @@ if __name__ == "__main__":
     
     final_state=app.invoke(initial_state)
     print("\n--- Workflow Complete ---")
-    print(f"Final Status: {final_state}")
-#     # This prints a text-based ASCII representation of your flow
-# print(app.get_graph().draw_ascii())
+    

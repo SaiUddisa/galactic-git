@@ -22,7 +22,7 @@ def find_solution(state:State):
 )
 
     structured_llm = llm.with_structured_output(solution_struct)
-    related_code = fetch_code(state.grep_commands,"../"+os.getenv("PROJECT_PATH"))
+    related_code = fetch_code(state.grep_commands,os.getenv("PROJECT_PATH"))
     prompt = f"""
     Generate sed commands that can be ran on a terminal to fix the issue, all the generated commands are ran one after another so be careful while generating.
     Title: {state.issue_title}
