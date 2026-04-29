@@ -14,11 +14,16 @@ def fetch_code(commands,path):
         args.insert(0,"-HinrC")
         args.insert(0,"grep")
         args.append("--exclude-dir={.git,node_modules,dist,.next}")
-        
+        print(args)
         p1 = subprocess.Popen(args,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
         stdout,stderr = p1.communicate()
         if(stdout!=""):
             final_code.append(stdout)
+    print("\n These are blocks code that related to the issue \n")
+    for code in final_code:
+        print()
+        print(code)
+        print()
     return(final_code)
 
 

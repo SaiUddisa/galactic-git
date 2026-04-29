@@ -16,7 +16,7 @@ def issue_selection_node(state:State):
     selected_issue = user_choice-1
 
     print(f"Great!! let fix this issue \n\n    Title: {issues[selected_issue]['title']}\n")
-    print(f"    Description:\n \t{issues[selected_issue]['body']}")
+    print(f"    Description:\n \t{issues[selected_issue]['body']}\n")
     return {
             "issue_title": issues[selected_issue]['title'],
             "issue_description": issues[selected_issue]['body'],
