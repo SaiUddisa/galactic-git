@@ -23,9 +23,15 @@ workflow.add_edge("solution_generation", "apply_changes")
 workflow.add_edge("apply_changes", END)
 
 
-
 app = workflow.compile()
 
+ASCII_ART = r"""
+  ____       _            _   _        ____ _ _   
+ / ___| __ _| | __ _  ___| |_(_) ___  / ___(_) |_ 
+| |  _ / _` | |/ _` |/ __| __| |/ __|| |  _| | __|
+| |_| | (_| | | (_| | (__| |_| | (__ | |_| | | |_ 
+ \____|\__,_|_|\__,_|\___|\__|_|\___| \____|_|\__|
+"""
 
 if __name__ == "__main__":
     load_dotenv()
@@ -33,7 +39,7 @@ if __name__ == "__main__":
         "issue_title": "", 
         "issue_description": ""
     }
-    
+    print(ASCII_ART) 
     final_state=app.invoke(initial_state)
     print("\n--- Workflow Complete ---")
     

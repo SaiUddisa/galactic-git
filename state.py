@@ -28,6 +28,6 @@ class State(BaseModel):
     grep_commands: Annotated[List[str], merge_paths] = Field(default_factory=list,description="List of grep commands that will fetch the related lines of code")
     related_code: Annotated[List[str], merge_paths] = Field(default_factory=list,description="List of code line that are responsible for the issue")
     sed_commands:Annotated[List[str],merge_paths] =Field(default_factory=list,description="list of sed command to fix the issue")
-    approach: Optional[str] = Field(None, description="The planned strategy to fix the bug")
+    approach: Optional[str] = Field(None, description="Descriptive planned strategy to fix the bug")
     modified_files: List[str] = Field(default_factory=list, description="List of files actually edited")
     status: str = Field(default="analyzing", description="Current stage: analyzing, planning, coding, or testing")

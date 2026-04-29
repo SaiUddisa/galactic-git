@@ -31,9 +31,9 @@ def find_culprit_files(state:State):
     
     try:
         result = structured_llm.invoke(prompt)
-        print("These files might be causing the issue:\n")
+        print("\nThese files might be causing the issue:\n")
         for path in result.file_paths:
-            print(path)
+            print("\t[+]"+path)
             
         return {
             "related_files": list(result.file_paths),

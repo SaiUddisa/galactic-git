@@ -3,8 +3,10 @@ import os
 
 def folder_structure(path):
     os.chdir(path)
+    p=subprocess.run(["git","checkout",os.getenv("BASE_BRANCH")])
+    p0=subprocess.run(["git","pull"])
     p1 = subprocess.Popen(
-        ["find", ".", "-maxdepth", "3", "-not", "-path", "*/.*"],
+        ["find", ".", "-maxdepth", "6", "-not", "-path", "*/.*"],
         
         stdout=subprocess.PIPE
     )
@@ -22,5 +24,3 @@ def folder_structure(path):
     
     output, error = p2.communicate()
     return output
-
-# print(map_folders("vue-videoplayer/"))
