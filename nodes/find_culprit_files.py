@@ -23,7 +23,7 @@ def find_culprit_files(state:State):
     structured_llm = llm.with_structured_output(CulpritDiscovery)
     project_map = folder_structure(os.getenv("PROJECT_PATH"))
     prompt = f"""
-    Identify the files(with relevent paths) responsible for this issue and Grep commands to find the line of code in those files that  causing the issue.
+    Identify the files(with relevent paths) responsible for this issue and Grep commands to find the line of code  in those files that  causing the issue.
     Title: {state.issue_title}
     Description: {state.issue_description}
     FileStrucuture:{project_map}
@@ -37,6 +37,7 @@ def find_culprit_files(state:State):
             
         return {
             "related_files": list(result.file_paths),
+            "folder_structure":project_map,
             "grep_commands":result.grep_commands,
             "status": "culprits_identified"
         }
