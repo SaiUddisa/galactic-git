@@ -1,5 +1,5 @@
 import os
-from sre_parse import State
+from state import State
 from typing import List
 
 from langchain_ollama import ChatOllama
@@ -10,6 +10,8 @@ from tools.fetch_code import fetch_code
 
 class solution_struct(BaseModel):
     approach:str =Field(description="the step by step solution to fix the issue should be descriptive")
+    branch_name:str = Field(description="Appropriate git branch name for the issue")
+    commit_message:str =Field(description="Appropriate commit message for the issue")
     sed_commands:List[str] =Field(description="list of sed command to fix the issue")
 
 def find_solution(state:State):
@@ -40,6 +42,8 @@ def find_solution(state:State):
             "sed_commands": list(result.sed_commands),
             "approach":result.approach,
             "related_code":related_code,
+            "branch_name":result.branch_name,
+            "commit_message":result.commit_message,
             "status": "solution_generated"
         }
     except Exception as e:

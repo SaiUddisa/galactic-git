@@ -22,6 +22,8 @@ class State(BaseModel):
     issue_title: str = Field(default="", description="The title of the GitHub issue")
     issue_description: str = Field(default="", description="The full body/text of the issue")
     folder_structure: str = Field(default="", description="Folder structure of the project")
+    branch_name: str = Field(default="", description="Suitable simple git branch name")
+    commit_message:str =Field(default="",description="Appropriate commit message for the issue")
     related_files: Annotated[List[str], merge_paths] = Field(default_factory=list,description="List of files that might be causing the issue")
     grep_commands: Annotated[List[str], merge_paths] = Field(default_factory=list,description="List of grep commands that will fetch the related lines of code")
     related_code: Annotated[List[str], merge_paths] = Field(default_factory=list,description="List of code line that are responsible for the issue")
