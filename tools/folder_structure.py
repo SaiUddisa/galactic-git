@@ -1,10 +1,12 @@
 import subprocess
 import os
 
-def folder_structure(path):
+def folder_structure(path,attempt):
     os.chdir(path)
-    p=subprocess.run(["git","checkout",os.getenv("BASE_BRANCH")])
-    p0=subprocess.run(["git","pull"])
+    if attempt<1:
+        p=subprocess.run(["git","checkout",os.getenv("BASE_BRANCH")])
+        p0=subprocess.run(["git","pull"])
+    
     p1 = subprocess.Popen(
         ["find", ".", "-maxdepth", "6", "-not", "-path", "*/.*"],
         

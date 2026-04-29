@@ -30,4 +30,5 @@ class State(BaseModel):
     sed_commands:Annotated[List[str],merge_paths] =Field(default_factory=list,description="list of sed command to fix the issue")
     approach: Optional[str] = Field(None, description="Descriptive planned strategy to fix the bug")
     modified_files: List[str] = Field(default_factory=list, description="List of files actually edited")
+    code_fetch_attempts:int=Field( default=0,description="Maximum number of agentic hops for code snippet finds")
     status: str = Field(default="analyzing", description="Current stage: analyzing, planning, coding, or testing")
